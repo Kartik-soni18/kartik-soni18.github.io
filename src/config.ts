@@ -183,8 +183,8 @@ export const footerConfig: FooterConfig = {
       links: [
         { label: "kartik18badmera@gmail.com", href: "mailto:kartik18badmera@gmail.com" },
         { label: "+91-8690331948", href: "tel:+91-8690331948" },
-        { label: "linkedin.com/in/kartik-soni", href: "https://linkedin.com/in/kartik-soni" },
-        { label: "github.com/kartik-soni", href: "https://github.com/kartik-soni" },
+        { label: "linkedin.com/in/kartik-soni-380476167", href: "https://www.linkedin.com/in/kartik-soni-380476167" },
+        { label: "github.com/Kartik-soni18", href: "https://github.com/Kartik-soni18" },
       ],
     },
     {
@@ -198,7 +198,7 @@ export const footerConfig: FooterConfig = {
   ],
   copyright: "\u00A9 2026 Kartik Soni. All rights reserved.",
   bottomLinks: [
-    { label: "LinkedIn", href: "https://linkedin.com/in/kartik-soni" },
-    { label: "GitHub", href: "https://github.com/kartik-soni" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/kartik-soni-380476167" },
+    { label: "GitHub", href: "https://github.com/Kartik-soni18" },
   ],
 };
