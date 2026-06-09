@@ -30,9 +30,9 @@ export default function Navigation() {
       style={{
         height: 80,
         padding: '0 5vw',
-        backgroundColor: scrolled ? 'rgba(10, 10, 10, 0.95)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(8px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(255, 255, 255, 0.05)' : 'none',
+        backgroundColor: scrolled ? 'rgba(8, 11, 15, 0.84)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(14px)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(214, 222, 229, 0.08)' : 'none',
       }}
     >
       <a
@@ -41,9 +41,10 @@ export default function Navigation() {
         className="text-white no-underline"
         style={{
           fontFamily: "'GeistMono', monospace",
-          fontSize: 18,
+          fontSize: 16,
           fontWeight: 400,
-          letterSpacing: '-0.5px',
+          letterSpacing: '0.08em',
+          textTransform: 'uppercase',
         }}
       >
         {siteConfig.brandName}

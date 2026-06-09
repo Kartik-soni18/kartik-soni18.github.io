@@ -10,10 +10,10 @@ export default function Footer() {
       id="footer"
       style={{
         padding: '150px 5vw 60px',
-        background: '#0a0a0a',
+        background: 'linear-gradient(180deg, #081018 0%, #05070a 100%)',
         position: 'relative',
         zIndex: 2,
-        borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+        borderTop: '1px solid rgba(214, 222, 229, 0.1)',
       }}
     >
       <div style={{ maxWidth: 1400, margin: '0 auto' }}>
@@ -21,12 +21,12 @@ export default function Footer() {
           <h2
             style={{
               fontFamily: "'EB Garamond', serif",
-              fontWeight: 400,
+              fontWeight: 500,
               fontSize: 'clamp(40px, 5vw, 80px)',
               lineHeight: 1.1,
-              letterSpacing: '-1.44px',
-              color: '#ffffff',
-              marginBottom: 80,
+              letterSpacing: '-0.04em',
+              color: '#f4f1eb',
+              marginBottom: 72,
             }}
           >
             {footerConfig.heading}

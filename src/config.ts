@@ -128,7 +128,12 @@ export interface ResearchProject {
   title: string;
   year: string;
   discipline: string;
-  image: string;
+  summary: string;
+  techStack: string[];
+  websiteHref: string;
+  websiteLabel: string;
+  githubHref: string;
+  githubLabel: string;
 }
 
 export interface ResearchConfig {
@@ -143,13 +148,38 @@ export const researchConfig: ResearchConfig = {
       title: "GuardianHealth",
       year: "2025",
       discipline: "AI/ML + Full-Stack + AWS",
-      image: "images/project-guardian.jpg",
+      summary:
+        "Healthcare-focused platform work spanning AI-assisted workflows, application development, and cloud deployment patterns.",
+      techStack: ["AI/ML", "Full-Stack", "AWS"],
+      websiteHref: "https://kartik-soni18.github.io/Guardian-health/",
+      websiteLabel: "Open website",
+      githubHref: "https://github.com/Kartik-soni18/Guardian-health",
+      githubLabel: "GitHub",
     },
     {
       title: "JEE Math Reasoning Agent",
       year: "2024",
       discipline: "LLM + Symbolic AI",
-      image: "images/project-jee.jpg",
+      summary:
+        "Reasoning-oriented project focused on structured math problem solving with LLM workflows and symbolic decision paths.",
+      techStack: ["Python", "Streamlit", "LLM", "Symbolic AI"],
+      websiteHref:
+        "https://jee-solver-agent-kxctqfgargwmbqd5oierjk.streamlit.app",
+      websiteLabel: "Open website",
+      githubHref: "https://github.com/Kartik-soni18/Jee-Solver-Agent",
+      githubLabel: "GitHub",
+    },
+    {
+      title: "Spurr",
+      year: "2025",
+      discipline: "Product Engineering",
+      summary:
+        "Product implementation work centered on polished user flows, practical engineering decisions, and production-minded execution.",
+      techStack: ["React", "Frontend", "OnRender", "Product UI"],
+      websiteHref: "https://spur-chat-frontend-wnpt.onrender.com",
+      websiteLabel: "Open website",
+      githubHref: "https://github.com/Kartik-soni18/Spurr-Task",
+      githubLabel: "GitHub",
     },
   ],
 };
@@ -185,14 +215,6 @@ export const footerConfig: FooterConfig = {
         { label: "+91-8690331948", href: "tel:+91-8690331948" },
         { label: "linkedin.com/in/kartik-soni-380476167", href: "https://www.linkedin.com/in/kartik-soni-380476167" },
         { label: "github.com/Kartik-soni18", href: "https://github.com/Kartik-soni18" },
-      ],
-    },
-    {
-      title: "Work",
-      links: [
-        { label: "Oracle Cloud Infrastructure", href: "#" },
-        { label: "GuardianHealth", href: "#" },
-        { label: "JEE Math Agent", href: "#" },
       ],
     },
   ],

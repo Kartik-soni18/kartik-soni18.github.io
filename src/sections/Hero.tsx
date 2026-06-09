@@ -31,21 +31,34 @@ export default function Hero() {
         className="relative z-10 flex flex-col justify-between pointer-events-none"
         style={{
           height: '100%',
-          padding: '28vh 5vw 8vh',
+          padding: '24vh 5vw 8vh',
         }}
       >
         <div>
+          <div
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              fontWeight: 500,
+              fontSize: 12,
+              letterSpacing: '0.26em',
+              textTransform: 'uppercase',
+              color: 'rgba(223, 231, 236, 0.72)',
+              marginBottom: 22,
+            }}
+          >
+            Software Engineer
+          </div>
           <h1
             ref={titleRef}
             className="text-white"
             style={{
-              fontFamily: "'GeistMono', monospace",
-              fontWeight: 400,
-              fontSize: 'clamp(48px, 6vw, 96px)',
-              lineHeight: 1.0,
-              letterSpacing: '-3px',
-              textShadow: '0 4px 24px rgba(0,0,0,0.8)',
-              marginBottom: 'clamp(32px, 4vw, 56px)',
+              fontFamily: "'EB Garamond', serif",
+              fontWeight: 500,
+              fontSize: 'clamp(56px, 7vw, 108px)',
+              lineHeight: 0.98,
+              letterSpacing: '-0.04em',
+              textShadow: '0 4px 24px rgba(0,0,0,0.55)',
+              marginBottom: 'clamp(28px, 4vw, 44px)',
               width: 'fit-content',
             }}
           >
@@ -54,16 +67,16 @@ export default function Hero() {
           {heroConfig.subtitleLine1 && (
             <p
               style={{
-                fontFamily: "'GeistMono', monospace",
-                fontWeight: 200,
-                fontSize: 'clamp(15px, 1.5vw, 22px)',
-                lineHeight: 1.7,
-                letterSpacing: '-0.3px',
-                color: '#ffffff',
+                fontFamily: "'Inter', sans-serif",
+                fontWeight: 300,
+                fontSize: 'clamp(16px, 1.6vw, 22px)',
+                lineHeight: 1.85,
+                letterSpacing: '-0.01em',
+                color: 'rgba(244, 247, 249, 0.92)',
                 margin: '0 0 12px 0',
                 width: titleWidth || 'auto',
                 maxWidth: '100%',
-                textShadow: '0 2px 12px rgba(0,0,0,0.6)',
+                textShadow: '0 2px 12px rgba(0,0,0,0.35)',
               }}
             >
               {heroConfig.subtitleLine1}
@@ -72,16 +85,16 @@ export default function Hero() {
           {heroConfig.subtitleLine2 && (
             <p
               style={{
-                fontFamily: "'GeistMono', monospace",
-                fontWeight: 200,
-                fontSize: 'clamp(15px, 1.5vw, 22px)',
-                lineHeight: 1.7,
-                letterSpacing: '-0.3px',
-                color: '#ffffff',
+                fontFamily: "'Inter', sans-serif",
+                fontWeight: 300,
+                fontSize: 'clamp(16px, 1.6vw, 22px)',
+                lineHeight: 1.85,
+                letterSpacing: '-0.01em',
+                color: 'rgba(244, 247, 249, 0.78)',
                 margin: 0,
                 width: titleWidth || 'auto',
                 maxWidth: '100%',
-                textShadow: '0 2px 12px rgba(0,0,0,0.6)',
+                textShadow: '0 2px 12px rgba(0,0,0,0.35)',
               }}
             >
               {heroConfig.subtitleLine2}

@@ -10,7 +10,8 @@ function HomePage() {
   return (
     <div
       style={{
-        background: '#0a0a0a',
+        background:
+          'radial-gradient(circle at top, rgba(70, 84, 98, 0.18) 0%, rgba(9, 12, 16, 0.92) 28%, #070a0d 68%, #05070a 100%)',
         minHeight: '100vh',
         overflowX: 'hidden',
       }}
