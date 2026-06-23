@@ -9,7 +9,7 @@ export default function Footer() {
     <footer
       id="footer"
       style={{
-        padding: '150px 5vw 60px',
+        padding: footerConfig.heading ? '150px 5vw 60px' : '88px 5vw 52px',
         background: 'linear-gradient(180deg, #081018 0%, #05070a 100%)',
         position: 'relative',
         zIndex: 2,
@@ -36,7 +36,7 @@ export default function Footer() {
         {footerConfig.columns.length > 0 && (
           <div
             className="grid grid-cols-1 md:grid-cols-2"
-            style={{ gap: 60, marginBottom: 120 }}
+            style={{ gap: 60, marginBottom: footerConfig.heading ? 120 : 72 }}
           >
             {footerConfig.columns.map((column, colIndex) => (
               <div key={colIndex} className="flex flex-col" style={{ gap: 16 }}>

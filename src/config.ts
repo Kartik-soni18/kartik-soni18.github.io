@@ -129,7 +129,11 @@ export interface ResearchProject {
   year: string;
   discipline: string;
   summary: string;
+  repoDescription: string;
+  language: string;
   techStack: string[];
+  highlights: string[];
+  imagePath: string;
   websiteHref: string;
   websiteLabel: string;
   githubHref: string;
@@ -143,41 +147,67 @@ export interface ResearchConfig {
 
 export const researchConfig: ResearchConfig = {
   sectionLabel: "Projects",
+  // ponytail: GitHub README/API data is curated here to avoid a client-side GitHub dependency; refresh this block when the repos change.
   projects: [
     {
       title: "GuardianHealth",
-      year: "2025",
-      discipline: "AI/ML + Full-Stack + AWS",
+      year: "2026",
+      discipline: "AI Health Triage",
       summary:
-        "Healthcare-focused platform work spanning AI-assisted workflows, application development, and cloud deployment patterns.",
-      techStack: ["AI/ML", "Full-Stack", "AWS"],
+        "AI-powered symptom triage for Indian healthcare contexts, with emergent, urgent, routine, and self-care guidance backed by structured symptom-disease data.",
+      repoDescription: "Frontend for the health agent",
+      language: "Python",
+      techStack: ["React 19", "FastAPI", "LangGraph", "MongoDB", "Upstash Redis", "AWS Lambda"],
+      highlights: [
+        "LangGraph clinical reasoning with Together.ai Llama 3.3 70B",
+        "React/Vite/TypeScript frontend deployed to GitHub Pages",
+        "FastAPI backend designed for AWS Lambda Function URLs",
+      ],
+      imagePath: "/images/project-guardian.jpg",
       websiteHref: "https://kartik-soni18.github.io/Guardian-health/",
       websiteLabel: "Open website",
       githubHref: "https://github.com/Kartik-soni18/Guardian-health",
       githubLabel: "GitHub",
     },
     {
-      title: "JEE Math Reasoning Agent",
-      year: "2024",
-      discipline: "LLM + Symbolic AI",
+      title: "JEE Advanced Math Solver",
+      year: "2026",
+      discipline: "Symbolic AI Agent",
       summary:
-        "Reasoning-oriented project focused on structured math problem solving with LLM workflows and symbolic decision paths.",
-      techStack: ["Python", "Streamlit", "LLM", "Symbolic AI"],
+        "LangGraph-powered agent for JEE Advanced mathematics that decomposes problems, executes SymPy steps in a sandbox, and verifies answers before formatting the result.",
+      repoDescription:
+        "Made a sandboxed python agent you can use your llm api key for solving jee questions",
+      language: "Python",
+      techStack: ["Python", "LangGraph", "SymPy", "Streamlit", "Together AI", "LaTeX"],
+      highlights: [
+        "Analyze, plan, solve, verify, and reflect pipeline with retries",
+        "Structured agent vs raw LLM comparison",
+        "Curated JEE benchmark and Streamlit problem-solving interface",
+      ],
+      imagePath: "/images/project-jee.jpg",
       websiteHref:
         "https://jee-solver-agent-kxctqfgargwmbqd5oierjk.streamlit.app",
-      websiteLabel: "Open website",
+      websiteLabel: "Open app",
       githubHref: "https://github.com/Kartik-soni18/Jee-Solver-Agent",
       githubLabel: "GitHub",
     },
     {
-      title: "Spurr",
-      year: "2025",
-      discipline: "Product Engineering",
+      title: "Spur AI Live Chat Agent",
+      year: "2026",
+      discipline: "AI Support Chat",
       summary:
-        "Product implementation work centered on polished user flows, practical engineering decisions, and production-minded execution.",
-      techStack: ["React", "Frontend", "OnRender", "Product UI"],
+        "Mini AI customer support widget with persistent conversations, FAQ-grounded responses, Redis-backed caching, input guardrails, and a responsive SvelteKit UI.",
+      repoDescription: "Spurr-Task",
+      language: "TypeScript",
+      techStack: ["TypeScript", "SvelteKit", "Express", "SQLite", "Redis", "Zod", "Tailwind CSS"],
+      highlights: [
+        "OpenAI GPT-4o-mini or Together AI backend provider support",
+        "SQLite conversation persistence with localStorage session resume",
+        "Sanitization, prompt-injection logging, token budgets, and timeouts",
+      ],
+      imagePath: "/images/project-vbstudio.jpg",
       websiteHref: "https://spur-chat-frontend-wnpt.onrender.com",
-      websiteLabel: "Open website",
+      websiteLabel: "Open demo",
       githubHref: "https://github.com/Kartik-soni18/Spurr-Task",
       githubLabel: "GitHub",
     },
@@ -206,7 +236,7 @@ export interface FooterConfig {
 }
 
 export const footerConfig: FooterConfig = {
-  heading: "Building something extraordinary.",
+  heading: "",
   columns: [
     {
       title: "Connect",
