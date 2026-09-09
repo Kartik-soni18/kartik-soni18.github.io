@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "kartik-portfolio-agent",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-09",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": false,
+  "vars": {
+    "LLM_PROVIDER": "aicredits",
+    "LLM_MODEL": "inclusionai/ling-3.0-flash",
+    "PORTFOLIO_ORIGIN": "https://kartik-soni18.github.io"
+  },
+  "ratelimits": [{ "name": "AGENT_RATE_LIMIT", "namespace_id": "918025", "simple": { "limit": 5, "period": 60 } }],
+  "observability": { "enabled": true, "head_sampling_rate": 1 }
+}

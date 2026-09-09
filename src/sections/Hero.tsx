@@ -1,5 +1,4 @@
 import { ArrowDown, Github, Linkedin } from 'lucide-react';
-import AmberCascades from './AmberCascades';
 import LiquidGlassButton from '../components/LiquidGlassButton';
 import { heroConfig } from '../config';
 
@@ -11,17 +10,25 @@ export default function Hero() {
   return (
     <section
       id="hero"
+      data-agent-section="home"
+      data-profile-name={heroConfig.title}
+      data-profile-about="Software engineer building AI-driven workflows and cloud-scale systems."
       className="hero-section relative w-full overflow-hidden"
     >
-      <AmberCascades />
       <div className="hero-vignette" aria-hidden="true" />
       <div className="hero-shell relative z-10 pointer-events-none">
         <div className="hero-copy">
-          <div className="hero-kicker">Software Engineer / AI Systems</div>
-          <h1>{heroConfig.title}</h1>
+          <div className="hero-kicker">Kartik Soni <span>·</span> Software engineer / AI systems</div>
+          <h1>Engineering products<br />that <em>think.</em></h1>
 
           <p className="hero-lede">{heroConfig.subtitleLine1}</p>
           <p className="hero-subline">{heroConfig.subtitleLine2}</p>
+
+          <dl className="hero-proof" aria-label="Professional profile highlights">
+            <div><dt>Current</dt><dd>Oracle Cloud Infrastructure</dd></div>
+            <div><dt>Focus</dt><dd>AI systems &amp; backend</dd></div>
+            <div><dt>Education</dt><dd>IIT Kanpur, CSE</dd></div>
+          </dl>
 
           <div className="hero-actions pointer-events-auto">
             {heroConfig.ctaText && (
@@ -39,6 +46,7 @@ export default function Hero() {
               rel="noreferrer"
               className="hero-icon-link"
               aria-label="GitHub profile"
+              data-agent-action="github"
             >
               <Github size={18} strokeWidth={1.7} />
             </a>
@@ -48,6 +56,7 @@ export default function Hero() {
               rel="noreferrer"
               className="hero-icon-link"
               aria-label="LinkedIn profile"
+              data-agent-action="linkedin"
             >
               <Linkedin size={18} strokeWidth={1.7} />
             </a>

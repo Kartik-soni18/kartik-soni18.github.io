@@ -8,6 +8,7 @@ export default function Footer() {
   return (
     <footer
       id="footer"
+      data-agent-section="contact"
       style={{
         padding: footerConfig.heading ? '150px 5vw 60px' : '88px 5vw 52px',
         background: 'linear-gradient(180deg, #081018 0%, #05070a 100%)',
@@ -62,6 +63,10 @@ export default function Footer() {
                     href={link.href}
                     className="nav-link"
                     style={{ width: 'fit-content' }}
+                    data-contact-email={link.href.startsWith('mailto:') ? link.href.slice(7) : undefined}
+                    data-contact-linkedin={link.href.includes('linkedin.com') ? link.href : undefined}
+                    data-contact-github={link.href.includes('github.com') ? link.href : undefined}
+                    data-agent-action={link.href.includes('github.com') ? 'github' : link.href.includes('linkedin.com') ? 'linkedin' : link.href.startsWith('mailto:') ? 'email' : undefined}
                   >
                     {link.label}
                   </a>

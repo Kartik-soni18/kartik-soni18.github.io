@@ -55,6 +55,7 @@ export default function AlumniArchives() {
   return (
     <section
       id="projects"
+      data-agent-section="projects"
       className="projects-section"
       style={{
         position: 'relative',
@@ -62,9 +63,14 @@ export default function AlumniArchives() {
       }}
     >
       <div className="projects-shell">
-        {researchConfig.sectionLabel && (
-          <div className="project-kicker">{researchConfig.sectionLabel}</div>
-        )}
+        <div className="project-section-header">
+          <div>
+            {researchConfig.sectionLabel && <div className="project-kicker">{researchConfig.sectionLabel}</div>}
+            <h2>Selected work, built to ship.</h2>
+            <div className="project-header-rule" />
+          </div>
+          <p>Practical AI systems, developer tools, and product-minded engineering—each grounded in a real user problem.</p>
+        </div>
 
         <div className="project-grid">
           {researchConfig.projects.map((project, i) => (
@@ -74,6 +80,7 @@ export default function AlumniArchives() {
                 itemRefs.current[i] = el;
               }}
               className="project-card"
+              data-profile-project={project.title}
               style={{ '--project-image': `url(${project.imagePath})` } as React.CSSProperties}
             >
               <div className="project-card-media" aria-hidden="true">

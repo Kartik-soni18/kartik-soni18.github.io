@@ -12,6 +12,23 @@ export const siteConfig: SiteConfig = {
   brandName: "Kartik Soni.",
 };
 
+// The only frontend location for the Worker endpoint. Local navigation works
+// without it; set VITE_AGENT_API_URL after the Worker is deployed.
+export const agentConfig = {
+  // The Worker URL is public by design; secrets remain exclusively in the
+  // Worker. An environment variable can still override this for staging.
+  apiUrl: import.meta.env.VITE_AGENT_API_URL || 'https://kartik-portfolio-agent.kartikaidev.workers.dev',
+  apiPath: '/agent',
+} as const;
+
+export const portfolioContext = {
+  name: 'Kartik Soni',
+  role: 'Member of Technical Staff-1 at Oracle Cloud Infrastructure',
+  summary: 'Software engineer focused on AI-driven workflows and cloud-scale metering systems.',
+  education: 'Computer Science & Engineering, IIT Kanpur.',
+  skills: ['Python', 'TypeScript', 'React', 'FastAPI', 'LangGraph', 'LLM orchestration', 'RAG', 'AWS', 'Docker', 'Kubernetes'],
+} as const;
+
 // ============================================================
 // Navigation
 // ============================================================
@@ -147,7 +164,7 @@ export interface ResearchConfig {
 
 export const researchConfig: ResearchConfig = {
   sectionLabel: "Projects",
-  // ponytail: GitHub README/API data is curated here to avoid a client-side GitHub dependency; refresh this block when the repos change.
+  // GitHub README/API data is curated here to avoid a client-side GitHub dependency; refresh this block when the repos change.
   projects: [
     {
       title: "GuardianHealth",
@@ -210,6 +227,26 @@ export const researchConfig: ResearchConfig = {
       websiteLabel: "Open demo",
       githubHref: "https://github.com/Kartik-soni18/Spurr-Task",
       githubLabel: "GitHub",
+    },
+    {
+      title: "Mutli-Hop RAG Benchmark",
+      year: "2026",
+      discipline: "Retrieval Evaluation",
+      summary:
+        "A multi-hop retrieval-augmented generation benchmark for evaluating whether a system can connect evidence across documents before producing a grounded answer.",
+      repoDescription: "Benchmarking multi-hop reasoning and retrieval quality",
+      language: "Python",
+      techStack: ["Python", "RAG", "LLMs", "Information Retrieval", "Evaluation"],
+      highlights: [
+        "Measures multi-hop question answering across linked pieces of evidence",
+        "Built to expose the gap between single-document retrieval and compositional reasoning",
+        "Current benchmark accuracy: 74 / 100",
+      ],
+      imagePath: "/images/project-redwood.jpg",
+      websiteHref: "https://github.com/Kartik-soni18/Mutli-Hop-rag",
+      websiteLabel: "74 / 100 accuracy",
+      githubHref: "https://github.com/Kartik-soni18/Mutli-Hop-rag",
+      githubLabel: "View benchmark",
     },
   ],
 };

@@ -26,26 +26,12 @@ export default function Navigation() {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between transition-colors duration-500"
-      style={{
-        height: 80,
-        padding: '0 5vw',
-        backgroundColor: scrolled ? 'rgba(8, 11, 15, 0.84)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(14px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(214, 222, 229, 0.08)' : 'none',
-      }}
+      className={`site-nav fixed top-0 left-0 right-0 z-50 flex items-center justify-between ${scrolled ? 'is-scrolled' : ''}`}
     >
       <a
         href="#hero"
         onClick={(e) => handleClick(e, '#hero')}
-        className="text-white no-underline"
-        style={{
-          fontFamily: "'GeistMono', monospace",
-          fontSize: 16,
-          fontWeight: 400,
-          letterSpacing: '0.08em',
-          textTransform: 'uppercase',
-        }}
+        className="site-mark no-underline"
       >
         {siteConfig.brandName}
       </a>

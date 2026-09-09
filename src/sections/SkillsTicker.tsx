@@ -202,6 +202,7 @@ export default function SkillsTicker() {
   return (
     <section
       id="skills"
+      data-agent-section="skills"
       ref={sectionRef}
       style={{
         padding: '120px 0 80px',
