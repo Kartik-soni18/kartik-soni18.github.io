@@ -76,12 +76,12 @@ const skillsData: Skill[][] = [
 ];
 
 const categoryColors: Record<string, string> = {
-  Lang: '#c8aa82',
-  'AI/ML': '#e8a87c',
-  Frontend: '#8fbc8f',
-  Backend: '#87ceeb',
-  Cloud: '#d4a574',
-  Tools: '#b0a0c0',
+  Lang: '#4f3d92',
+  'AI/ML': '#a03d5e',
+  Frontend: '#08745f',
+  Backend: '#086f92',
+  Cloud: '#8a4d13',
+  Tools: '#684889',
 };
 
 function TickerRow({
@@ -117,6 +117,7 @@ function TickerRow({
         {tripled.map((skill, i) => (
           <div
             key={`${skill.name}-${i}`}
+            className="skill-ticker-item"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -126,6 +127,7 @@ function TickerRow({
             }}
           >
             <span
+              className="skill-ticker-mark"
               style={{
                 fontFamily: "'Fira Code', monospace",
                 fontSize: 13,
@@ -137,6 +139,7 @@ function TickerRow({
               ▲
             </span>
             <span
+              className="skill-ticker-name"
               style={{
                 fontFamily: "'GeistMono', monospace",
                 fontSize: 15,
@@ -148,6 +151,7 @@ function TickerRow({
               {skill.name}
             </span>
             <span
+              className="skill-ticker-category"
               style={{
                 fontFamily: "'Inter', sans-serif",
                 fontSize: 10,
@@ -250,6 +254,7 @@ export default function SkillsTicker() {
         >
           Technical toolkit, continuously expanding.
         </h2>
+        <p className="skills-slider-hint">A practical mix of AI systems, product engineering, and cloud delivery. Hover any row to pause.</p>
       </div>
 
       {/* Ticker rows */}
@@ -259,12 +264,9 @@ export default function SkillsTicker() {
           borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
         }}
       >
-        <TickerRow skills={skillsData[0]} direction="left" speed={35} />
-        <TickerRow skills={skillsData[1]} direction="right" speed={40} />
-        <TickerRow skills={skillsData[2]} direction="left" speed={30} />
-        <TickerRow skills={skillsData[3]} direction="right" speed={38} />
-        <TickerRow skills={skillsData[4]} direction="left" speed={42} />
-        <TickerRow skills={skillsData[5]} direction="right" speed={32} />
+        <TickerRow skills={[...skillsData[0], ...skillsData[2]]} direction="left" speed={72} />
+        <TickerRow skills={[...skillsData[1], ...skillsData[3]]} direction="right" speed={76} />
+        <TickerRow skills={[...skillsData[4], ...skillsData[5]]} direction="left" speed={82} />
       </div>
 
       {/* Keyframe styles */}

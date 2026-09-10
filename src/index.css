@@ -757,9 +757,16 @@ body { min-width: 320px; background: var(--paper); color: var(--ink); font-famil
 #skills h2 { max-width: 780px; color: var(--ink) !important; font-family: ui-rounded, Inter, sans-serif !important; font-size: clamp(36px, 5vw, 70px) !important; font-weight: 800 !important; letter-spacing: -.06em !important; line-height: .95 !important; }
 #skills [style*="color: #dadada"] { color: var(--muted-ink) !important; font-weight: 700 !important; }
 #skills [style*="height: 1px"] { background: rgba(37, 33, 50, .15) !important; }
-.ticker-row { padding: 14px 0 !important; border-color: rgba(37, 33, 50, .15) !important; }
+.skills-slider-hint { max-width: 600px; margin: -42px 0 46px; color: var(--muted-ink); font-size: 15px; font-weight: 600; line-height: 1.55; }
+.ticker-row { padding: 11px 0 !important; border-color: rgba(37, 33, 50, .15) !important; background: rgba(255,255,255,.18); }
 .ticker-row [style*="border-right"] { border-color: rgba(37, 33, 50, .12) !important; }
-.ticker-row [style*="color: #ffffff"] { color: var(--ink) !important; font-size: 15px !important; font-weight: 700 !important; }
+.ticker-track { will-change: transform; }
+.ticker-row:hover .ticker-track { animation-play-state: paused !important; }
+.skill-ticker-item { min-height: 64px; margin: 0 7px; padding: 0 20px !important; border: 1px solid rgba(37,33,50,.15) !important; border-radius: 12px; background: rgba(255,255,255,.78); box-shadow: 0 2px 0 rgba(37,33,50,.09); }
+.skill-ticker-mark { font-size: 16px !important; font-weight: 900 !important; opacity: 1 !important; }
+.skill-ticker-name, .ticker-row [style*="color: #ffffff"] { color: var(--ink) !important; font-family: ui-sans-serif, system-ui, sans-serif !important; font-size: 17px !important; font-weight: 800 !important; letter-spacing: -.02em !important; }
+.skill-ticker-category { font-family: ui-monospace, SFMono-Regular, Menlo, monospace !important; font-size: 10px !important; font-weight: 800 !important; letter-spacing: .08em !important; opacity: 1 !important; }
+@media (max-width: 640px) { .skills-slider-hint { margin: -28px 0 36px; font-size: 14px; } .skill-ticker-item { min-height: 58px; padding: 0 15px !important; } .skill-ticker-name { font-size: 16px !important; } }
 
 .projects-section { padding: 120px clamp(20px, 5vw, 72px) 140px; background: var(--paper); }
 .projects-section::before { opacity: 1; background: radial-gradient(circle at 4% 20%, #ffe2d8 0 6%, transparent 28%), radial-gradient(circle at 94% 6%, var(--mint) 0 8%, transparent 30%); }
