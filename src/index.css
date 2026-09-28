@@ -213,3 +213,7 @@ footer h2 em { color: #cad2bd; }
 .motion-toggle { display: inline-flex; align-items: center; gap: 5px; border: 0; padding: 0; background: transparent; color: var(--muted); font: 7px var(--mono); }
 html[data-motion="paused"] *,html[data-motion="paused"] *::before,html[data-motion="paused"] *::after { animation-play-state: paused !important; }
 .agent-project-overview .featured-project { border-color: #8a9a76; }
+
+.portfolio-demo { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+.portfolio-demo > span { display: flex; align-items: center; gap: 10px; }.portfolio-demo button { border: 0; background: transparent; padding: 0; color: var(--ink); }
+@media(max-width:760px) { .portfolio-demo { flex-direction: column; align-items: start; font-size: 11px; } }
