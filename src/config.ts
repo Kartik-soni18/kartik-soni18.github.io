@@ -23,7 +23,7 @@ export const agentConfig = {
 
 export const portfolioContext = {
   name: 'Kartik Soni',
-  role: 'Member of Technical Staff-1 at Oracle Cloud Infrastructure',
+  role: 'Software engineer focused on LLMs and AI agents',
   summary: 'Software engineer focused on AI-driven workflows and cloud-scale metering systems.',
   education: 'Computer Science & Engineering, IIT Kanpur.',
   skills: ['Python', 'TypeScript', 'React', 'FastAPI', 'LangGraph', 'LLM orchestration', 'RAG', 'AWS', 'Docker', 'Kubernetes'],
@@ -65,7 +65,7 @@ export interface HeroConfig {
 export const heroConfig: HeroConfig = {
   title: "Kartik Soni.",
   subtitleLine1:
-    "Member of Technical Staff-1 at Oracle Cloud Infrastructure. Building AI-driven workflows and cloud-scale metering systems.",
+    "Software engineer focused on LLMs, browser automation, and AI support workflows.",
   subtitleLine2: "IIT Kanpur. Computer Science & Engineering.",
   ctaText: "Explore my work",
 };

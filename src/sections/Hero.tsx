@@ -13,13 +13,12 @@ export default function Hero() {
       <div className="hero-shell page-width">
         <div className="hero-copy">
           <div className="eyebrow hero-enter"><span className="status-dot" /> SOFTWARE ENGINEER · IIT KANPUR</div>
-          <h1 className="hero-enter">Thoughtful systems.<br /><span>Intelligent</span><br />experiences.</h1>
-          <p className="hero-lede hero-enter">I’m Kartik. I build AI agents that turn intent into action, and cloud systems that make it scale.</p>
+          <h1 className="hero-enter">Kartik Soni.<br /><span>LLMs &amp; AI agents.</span></h1>
+          <p className="hero-lede hero-enter">Software engineer focused on LLMs, browser automation, and AI support workflows. Computer Science & Engineering, IIT Kanpur.</p>
           <div className="hero-actions hero-enter">
             <a className="button button-dark" href="#projects">Explore the work <ArrowDown size={16} /></a>
             <a className="text-link" href="https://github.com/Kartik-soni18" target="_blank" rel="noreferrer" data-agent-action="github">GitHub <ArrowUpRight size={16} /></a>
           </div>
-          <div className="hero-current hero-enter"><span className="current-mark">O</span><div><span>Currently building at</span><strong>Oracle Cloud Infrastructure</strong></div></div>
         </div>
         <div className="system-visual hero-enter" aria-label="Illustration of an agent turning intent into action">
           <div className="system-top"><span className="eyebrow">THE AGENT LOOP</span><span className="system-version">01 / SYSTEMS IN MOTION</span></div>
@@ -35,7 +34,7 @@ export default function Hero() {
           <div className="system-bottom"><span><i /> Human intent. Useful outcomes.</span><button className="motion-toggle" type="button" aria-pressed={paused} onClick={() => setPaused(value => !value)} aria-label={paused ? "Resume animations" : "Pause animations"}>{paused ? <Play size={10} /> : <Pause size={10} />} {paused ? "RESUME" : "PAUSE"}</button></div>
         </div>
       </div>
-      <div className="hero-baseline page-width"><span>AI AGENTS / PRODUCT ENGINEERING / CLOUD SYSTEMS</span><a href="#projects">SCROLL TO EXPLORE <ArrowDown size={13} /></a></div>
+      <div className="hero-baseline page-width"><span>LLMs / AI AGENTS / CLOUD SYSTEMS</span><a href="#projects">SCROLL TO EXPLORE <ArrowDown size={13} /></a></div>
     </section>
   );
 }

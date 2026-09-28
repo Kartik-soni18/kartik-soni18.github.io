@@ -1,5 +1,7 @@
 # [kartik-soni18.github.io](https://kartik-soni18.github.io)
 
+Kartik Soni’s portfolio, focused on LLMs and AI agents.
+
 ## AI Portfolio Assistant
 
 The portfolio remains a GitHub Pages React/Vite site. A small floating assistant handles obvious navigation locally, then only forwards open-ended questions to a Cloudflare Worker:

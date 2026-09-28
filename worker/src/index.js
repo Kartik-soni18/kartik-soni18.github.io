@@ -12,7 +12,7 @@ const tools = [
 function systemPrompt() { return `You are Kartik Soni's concise portfolio copilot. Context:\n${portfolioContext}\nUse the provided tools when the visitor wants navigation or an approved public link. For contact questions, answer directly from the provided public contact context without calling a tool. For project requests, call scroll with target projects and add a one-sentence overview in your response. For skills requests, call scroll with target skills and add a concise overview. You may provide a response and tool calls in the same turn. Never invent URLs, selectors, actions, private facts, or code.`; }
 function fallbackMessage(actions) {
   const scrollTarget = actions.find(action => action.action === 'scroll')?.target;
-  if (scrollTarget === 'projects') return 'I’ve brought the projects into view. Start with GuardianHealth for an AI workflow in production, or the Multi-Hop RAG Benchmark for retrieval evaluation.';
+  if (scrollTarget === 'projects') return 'I’ve brought the projects into view. Start with Browser Agent for browser automation, or Chat Support Agent for multimodal customer support.';
   if (scrollTarget === 'skills') return 'I’ve opened Kartik’s toolkit: AI orchestration and RAG sit alongside practical backend, cloud, and frontend engineering.';
   if (scrollTarget === 'contact') return 'I’ve opened the contact section so you can reach Kartik directly.';
   if (scrollTarget === 'home') return 'I’ve taken you back to the overview.';
