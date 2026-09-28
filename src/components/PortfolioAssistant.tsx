@@ -1,5 +1,6 @@
-import { useRef, useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { ArrowUpRight, Bot, BriefcaseBusiness, Mail, Send, Sparkles, X } from 'lucide-react';
+import { localRoute } from '../lib/agent-router';
 import { agentConfig } from '../config';
 import { executeAgentAction, type AgentAction } from '../lib/agent-actions';
 
@@ -21,10 +22,17 @@ function validResponse(value: unknown): value is { actions: AgentAction[]; messa
 
 export default function PortfolioAssistant() {
   const [open, setOpen] = useState(false); const [input, setInput] = useState(''); const [messages, setMessages] = useState<Message[]>(initial); const [loading, setLoading] = useState(false); const inputRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    const openPanel = () => { setOpen(true); window.setTimeout(() => inputRef.current?.focus(), 0); };
+    window.addEventListener('portfolio-assistant:open', openPanel);
+    return () => window.removeEventListener('portfolio-assistant:open', openPanel);
+  }, []);
   const reply = (text: string) => setMessages(current => [...current, { role: 'assistant', text }]);
   async function submit(event: FormEvent) {
     event.preventDefault(); const question = input.trim(); if (!question || loading) return;
     setMessages(current => [...current, { role: 'user', text: question }]); setInput('');
+    const localAction = localRoute(question);
+    if (localAction) { reply(executeAgentAction(localAction)); return; }
     if (!agentConfig.apiUrl) { reply('The AI copilot is not configured yet. Add the Worker URL to enable questions and navigation.'); return; }
     setLoading(true);
     try {
@@ -38,7 +46,7 @@ export default function PortfolioAssistant() {
     window.setTimeout(() => inputRef.current?.form?.requestSubmit(), 0);
   }
   return <aside className="portfolio-assistant" aria-label="AI portfolio assistant">
-    {open && <section className="agent-panel" aria-label="AI Portfolio Assistant"><header><div className="agent-title"><span className="agent-orb"><Sparkles size={15}/></span><div><span className="agent-eyebrow">Portfolio copilot</span><h2>Find the signal.</h2></div></div><button type="button" className="agent-icon-button" onClick={() => setOpen(false)} aria-label="Minimize assistant"><X size={18}/></button></header><div className="agent-shortcuts"><button type="button" onClick={() => runSuggestion('Show me the projects')}><BriefcaseBusiness size={15}/>Explore projects<ArrowUpRight size={14}/></button><button type="button" onClick={() => runSuggestion('How can I contact Kartik?')}><Mail size={15}/>Get in touch<ArrowUpRight size={14}/></button></div><div className="agent-messages" aria-live="polite">{messages.map((message, index) => <p key={index} className={`agent-message agent-message-${message.role}`}>{message.text}</p>)}{loading && <p className="agent-status">Thinking…</p>}</div><form onSubmit={submit}><label className="sr-only" htmlFor="assistant-message">Ask a question</label><input ref={inputRef} id="assistant-message" value={input} onChange={e => setInput(e.target.value)} placeholder="Ask about work, skills, or contact" maxLength={500} disabled={loading}/><button type="submit" aria-label="Send message" disabled={loading || !input.trim()}><Send size={17}/></button></form></section>}
-    <button type="button" className="agent-launcher" onClick={() => { setOpen(value => !value); window.setTimeout(() => inputRef.current?.focus(), 0); }} aria-expanded={open} aria-controls="assistant-message"><span className="agent-launcher-icon"><Bot size={19}/></span><span><small>Ask Kartik's</small>{open ? 'Close copilot' : 'AI copilot'}</span></button>
+    {open && <section id="portfolio-agent-panel" className="agent-panel" aria-label="AI Portfolio Assistant"><header><div className="agent-title"><span className="agent-orb"><Sparkles size={15}/></span><div><span className="agent-eyebrow">Portfolio copilot</span><h2>Find the signal.</h2></div></div><button type="button" className="agent-icon-button" onClick={() => setOpen(false)} aria-label="Minimize assistant"><X size={18}/></button></header><div className="agent-shortcuts"><button type="button" onClick={() => runSuggestion('Show me the projects')}><BriefcaseBusiness size={15}/>Explore projects<ArrowUpRight size={14}/></button><button type="button" onClick={() => runSuggestion('How can I contact Kartik?')}><Mail size={15}/>Get in touch<ArrowUpRight size={14}/></button></div><div className="agent-messages" aria-live="polite">{messages.map((message, index) => <p key={index} className={`agent-message agent-message-${message.role}`}>{message.text}</p>)}{loading && <p className="agent-status">Thinking…</p>}</div><form onSubmit={submit}><label className="sr-only" htmlFor="assistant-message">Ask a question</label><input ref={inputRef} id="assistant-message" value={input} onChange={e => setInput(e.target.value)} placeholder="Ask about work, skills, or contact" maxLength={500} disabled={loading}/><button type="submit" aria-label="Send message" disabled={loading || !input.trim()}><Send size={17}/></button></form></section>}
+    <button type="button" className="agent-launcher" onClick={() => { setOpen(value => !value); window.setTimeout(() => inputRef.current?.focus(), 0); }} aria-label={open ? "Close portfolio agent" : "Open portfolio agent"} aria-expanded={open} aria-controls="portfolio-agent-panel"><span className="agent-launcher-icon"><Bot size={19}/></span><span><small>PORTFOLIO AGENT</small>{open ? 'Close agent' : 'Ask me anything'}</span></button>
   </aside>;
 }

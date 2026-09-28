@@ -16,7 +16,7 @@ export default function Navigation() {
     e.preventDefault();
     const el = document.querySelector(href);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      el.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
     }
   };
 
@@ -36,7 +36,7 @@ export default function Navigation() {
         {siteConfig.brandName}
       </a>
 
-      <div className="hidden md:flex items-center" style={{ gap: 40 }}>
+      <div className="flex items-center" style={{ gap: 24 }}>
         {navigationConfig.links.map((link) => (
           <a
             key={link.label}
@@ -53,7 +53,7 @@ export default function Navigation() {
         <a
           href="#footer"
           onClick={(e) => handleClick(e, '#footer')}
-          className="nav-link hidden md:inline-block"
+          className="nav-link nav-contact"
         >
           {navigationConfig.ctaText}
         </a>

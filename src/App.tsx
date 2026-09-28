@@ -10,12 +10,13 @@ import PortfolioAssistant from './components/PortfolioAssistant';
 function HomePage() {
   return (
     <div className="site-shell">
+      <a className="skip-link" href="#projects">Skip to projects</a>
       <Navigation />
 
       <main>
         <Hero />
-        <SkillsTicker />
         <AlumniArchives />
+        <SkillsTicker />
         <Footer />
         <PortfolioAssistant />
       </main>

@@ -45,8 +45,8 @@ export interface NavigationConfig {
 
 export const navigationConfig: NavigationConfig = {
   links: [
-    { label: "Skills", href: "#skills" },
     { label: "Projects", href: "#projects" },
+    { label: "Skills", href: "#skills" },
   ],
   ctaText: "Get in touch",
 };
@@ -229,7 +229,7 @@ export const researchConfig: ResearchConfig = {
       githubLabel: "GitHub",
     },
     {
-      title: "Mutli-Hop RAG Benchmark",
+      title: "Multi-Hop RAG Benchmark",
       year: "2026",
       discipline: "Retrieval Evaluation",
       summary:

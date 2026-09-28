@@ -11,7 +11,7 @@ export function executeAgentAction(action: AgentAction): string {
   if (action.action === 'scroll') {
     const section = document.querySelector<HTMLElement>(`[data-agent-section="${action.target}"]`);
     if (!section) return 'That section is not available on this page.';
-    section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    section.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
     section.classList.add('agent-section-highlight');
     if (action.target === 'projects') section.classList.add('agent-project-overview');
     window.setTimeout(() => section.classList.remove('agent-section-highlight'), 1300);

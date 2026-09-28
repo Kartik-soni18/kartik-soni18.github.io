@@ -1,80 +1,41 @@
-import { ArrowDown, Github, Linkedin } from 'lucide-react';
-import LiquidGlassButton from '../components/LiquidGlassButton';
+import { useEffect, useState } from 'react';
+import { ArrowDown, ArrowUpRight, Pause, Play } from 'lucide-react';
 import { heroConfig } from '../config';
 
 export default function Hero() {
-  if (!heroConfig.title) {
-    return null;
-  }
-
+  const [paused, setPaused] = useState(false);
+  useEffect(() => {
+    document.documentElement.dataset.motion = paused ? 'paused' : 'running';
+    return () => { delete document.documentElement.dataset.motion; };
+  }, [paused]);
   return (
-    <section
-      id="hero"
-      data-agent-section="home"
-      data-profile-name={heroConfig.title}
-      data-profile-about="Software engineer building AI-driven workflows and cloud-scale systems."
-      className="hero-section relative w-full overflow-hidden"
-    >
-      <div className="hero-vignette" aria-hidden="true" />
-      <div className="hero-shell relative z-10 pointer-events-none">
+    <section id="hero" data-agent-section="home" data-profile-name="Kartik Soni" data-profile-about={heroConfig.subtitleLine1} className="hero-section">
+      <div className="hero-shell page-width">
         <div className="hero-copy">
-          <div className="hero-kicker">Kartik Soni <span>·</span> Software engineer / AI systems</div>
-          <h1>Engineering products<br />that <em>think.</em></h1>
-
-          <p className="hero-lede">{heroConfig.subtitleLine1}</p>
-          <p className="hero-subline">{heroConfig.subtitleLine2}</p>
-
-          <dl className="hero-proof" aria-label="Professional profile highlights">
-            <div><dt>Current</dt><dd>Oracle Cloud Infrastructure</dd></div>
-            <div><dt>Focus</dt><dd>AI systems &amp; backend</dd></div>
-            <div><dt>Education</dt><dd>IIT Kanpur, CSE</dd></div>
-          </dl>
-
-          <div className="hero-actions pointer-events-auto">
-            {heroConfig.ctaText && (
-              <LiquidGlassButton
-                onClick={() => {
-                  document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-              >
-                {heroConfig.ctaText}
-              </LiquidGlassButton>
-            )}
-            <a
-              href="https://github.com/Kartik-soni18"
-              target="_blank"
-              rel="noreferrer"
-              className="hero-icon-link"
-              aria-label="GitHub profile"
-              data-agent-action="github"
-            >
-              <Github size={18} strokeWidth={1.7} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/kartik-soni-380476167"
-              target="_blank"
-              rel="noreferrer"
-              className="hero-icon-link"
-              aria-label="LinkedIn profile"
-              data-agent-action="linkedin"
-            >
-              <Linkedin size={18} strokeWidth={1.7} />
-            </a>
+          <div className="eyebrow hero-enter"><span className="status-dot" /> SOFTWARE ENGINEER · IIT KANPUR</div>
+          <h1 className="hero-enter">Thoughtful systems.<br /><span>Intelligent</span><br />experiences.</h1>
+          <p className="hero-lede hero-enter">I’m Kartik. I build AI agents that turn intent into action, and cloud systems that make it scale.</p>
+          <div className="hero-actions hero-enter">
+            <a className="button button-dark" href="#projects">Explore the work <ArrowDown size={16} /></a>
+            <a className="text-link" href="https://github.com/Kartik-soni18" target="_blank" rel="noreferrer" data-agent-action="github">GitHub <ArrowUpRight size={16} /></a>
           </div>
+          <div className="hero-current hero-enter"><span className="current-mark">O</span><div><span>Currently building at</span><strong>Oracle Cloud Infrastructure</strong></div></div>
         </div>
-
-        <div className="hero-scroll-cue pointer-events-auto">
-          <button
-            type="button"
-            aria-label="Scroll to projects"
-            onClick={() => {
-              document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
-            }}
-          >
-            <ArrowDown size={17} strokeWidth={1.7} />
-          </button>
+        <div className="system-visual hero-enter" aria-label="Illustration of an agent turning intent into action">
+          <div className="system-top"><span className="eyebrow">THE AGENT LOOP</span><span className="system-version">01 / SYSTEMS IN MOTION</span></div>
+          <div className="orbit-scene" aria-hidden="true">
+            <div className="orbit orbit-one" /><div className="orbit orbit-two" /><div className="orbit orbit-three" />
+            <div className="orbit-core"><span>ks</span><small>INTENT → ACTION</small></div>
+            <div className="orbit-node node-one"><span>01</span>Understand</div>
+            <div className="orbit-node node-two"><span>02</span>Reason</div>
+            <div className="orbit-node node-three"><span>03</span>Act</div>
+            <div className="orbit-node node-four"><span>04</span>Verify</div>
+            <div className="orbit-traveler"><i /></div>
+          </div>
+          <div className="system-bottom"><span><i /> Human intent. Useful outcomes.</span><button className="motion-toggle" type="button" aria-pressed={paused} onClick={() => setPaused(value => !value)} aria-label={paused ? "Resume animations" : "Pause animations"}>{paused ? <Play size={10} /> : <Pause size={10} />} {paused ? "RESUME" : "PAUSE"}</button></div>
         </div>
       </div>
+      <div className="hero-baseline page-width"><span>AI AGENTS / PRODUCT ENGINEERING / CLOUD SYSTEMS</span><a href="#projects">SCROLL TO EXPLORE <ArrowDown size={13} /></a></div>
     </section>
   );
 }
